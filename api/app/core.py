@@ -93,26 +93,8 @@ class BambooHRClient:
 class S3Helper:
     """Utility class for handling S3 operations."""
 
-    def __init__(
-        self,
-        aws_access_key_id: str,
-        aws_secret_access_key: str,
-        region_name: str = "eu-east-1",
-    ):
-        """
-        Initializes the S3Helper with AWS credentials and region.
-
-        Args:
-            aws_access_key_id (str): Your AWS access key ID.
-            aws_secret_access_key (str): Your AWS secret access key.
-            region_name (str): The AWS region to connect to (default: "us-east-1").
-        """
-        self.s3_client = boto3.client(
-            "s3",
-            aws_access_key_id=aws_access_key_id,
-            aws_secret_access_key=aws_secret_access_key,
-            region_name=region_name,
-        )
+    def __init__(self):
+        self.s3_client = boto3.client("s3")
 
     def upload_json(self, data: List[dict], s3_path: str, bucket: str):
         """

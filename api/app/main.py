@@ -8,23 +8,16 @@ logger = setup_logger("BambooHR")
 
 # Fetch credentials
 load_dotenv()
-aws_access_key_id = os.getenv("AWS_ACCESS_KEY_ID")
-aws_secret_access_key = os.getenv("AWS_SECRET_ACCESS_KEY")
-aws_region = os.getenv("AWS_REGION")
 s3_bucket = os.getenv("S3_BUCKET_NAME")
-API_KEY = os.getenv("API_KEY")
+api_key = os.getenv("API_KEY")
 
 COMPANY_DOMAIN = "typicode"
 ingestion_dt = datetime.now().strftime("%Y-%m-%d")
 
 
 def main():
-    client = BambooHRClient(api_key=API_KEY, company_domain=COMPANY_DOMAIN)
-    s3 = S3Helper(
-        aws_access_key_id=aws_access_key_id,
-        aws_secret_access_key=aws_secret_access_key,
-        region_name=aws_region,
-    )
+    client = BambooHRClient(api_key=api_key, company_domain=COMPANY_DOMAIN)
+    s3 = S3Helper()
 
     try:
         logger.info("Fetching data from API...")
