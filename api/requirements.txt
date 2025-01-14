@@ -1,0 +1,6 @@
+black[jupyter]==24.10.0
+jupyter-black==0.4.0
+boto3==1.24.48
+ipykernel==6.6.0
+requests==2.32.3
+python-dotenv==1.0.1
