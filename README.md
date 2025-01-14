@@ -1,0 +1,1 @@
+## AWS project using ECS, ECR, S3 and RDS to create a sample pipeline.
