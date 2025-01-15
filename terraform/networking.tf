@@ -1,6 +1,6 @@
 resource "aws_vpc" "ecs_vpc" {
   cidr_block = "10.0.0.0/16"
-  tags = merge(local.common_tags, { Name = local.project_name })
+  tags       = merge(local.common_tags, { Name = local.project_name })
 }
 
 resource "aws_subnet" "ecs_subnet" {
@@ -8,7 +8,7 @@ resource "aws_subnet" "ecs_subnet" {
   vpc_id            = aws_vpc.ecs_vpc.id
   cidr_block        = "10.0.${count.index}.0/24"
   availability_zone = data.aws_availability_zones.available.names[count.index]
-  tags = local.common_tags
+  tags              = local.common_tags
 }
 
 resource "aws_security_group" "ecs_security_group" {

@@ -4,7 +4,7 @@ resource "random_id" "bucket_suffix" {
 
 resource "aws_s3_bucket" "landing_bucket" {
   bucket = "landing-bucket-${random_id.bucket_suffix.hex}"
-  tags = local.common_tags
+  tags   = local.common_tags
 }
 
 resource "aws_iam_policy" "s3_access_policy" {
@@ -14,8 +14,8 @@ resource "aws_iam_policy" "s3_access_policy" {
     Version : "2012-10-17",
     Statement : [
       {
-        Effect   : "Allow",
-        Action   : ["s3:PutObject", "s3:GetObject"],
+        Effect : "Allow",
+        Action : ["s3:PutObject", "s3:GetObject"],
         Resource : [
           "${aws_s3_bucket.landing_bucket.arn}/*"
         ]
