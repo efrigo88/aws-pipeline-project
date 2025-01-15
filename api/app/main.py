@@ -8,7 +8,7 @@ logger = setup_logger("BambooHR")
 
 # Fetch credentials
 load_dotenv()
-s3_bucket = os.getenv("S3_BUCKET_NAME", "landing-bucket-6343551653c7")
+s3_bucket = os.getenv("S3_BUCKET_NAME", "landing-bucket-20d6218c51a7")
 api_key = os.getenv("API_KEY", "default_api_key")
 
 COMPANY_DOMAIN = "typicode"
